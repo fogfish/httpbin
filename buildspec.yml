@@ -24,12 +24,12 @@ phases:
         echo "==> post build"
 
       - |-
-          if [ "$CI_PR_LEVEL" -eq "init" ]; then
+          if [ "x$CI_PR_LEVEL" == "xinit" ]; then
             echo "==> init pull request $CI_PR"
           fi
 
       - |-
-          if [ "$CI_PR_LEVEL" -eq "free" ]; then
+          if [ "x$CI_PR_LEVEL" == "xfree" ]; then
             echo "==> free pull request $CI_PR"
           fi
 
