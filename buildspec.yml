@@ -24,21 +24,22 @@ phases:
         echo "==> post build"
 
       - |-
-          if [ "x$CI_PR_LEVEL" == "xinit" ]; then
-            echo "==> init pull request $CI_PR"
+          if [ "x$BOT_LEVEL" == "xinit" ]; then
+            echo "==> init pull request $BOT_ISSUE"
           fi
 
       - |-
-          if [ "x$CI_PR_LEVEL" == "xfree" ]; then
-            echo "==> free pull request $CI_PR" && exit -1
+          if [ "x$BOT_LEVEL" == "xfree" ]; then
+            echo "==> free pull request $BOT_ISSUE" && exit -1
           fi
 
       - |-
-          if [ -z "$CI_PR_LEVEL" ]; then
-            echo "==> release staging" && exit -1
+          if [ "x$BOT_LEVEL" == "xmaster" ]; then
+            echo "==> release master $BOT_ISSUE" && exit -1
           fi
 
       - |-
-          if [ ! -z "$CI_REL" ]; then
-            echo "==> release $CI_REL" && exit -1
+          if [ "x$BOT_LEVEL" == "xrelease" ]; then
+            echo "==> release $BUILD_REL ($BUILD_COMMIT)" && exit -1
           fi
+
