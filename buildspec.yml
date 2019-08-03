@@ -22,3 +22,23 @@ phases:
     commands:
       - |-
         echo "==> post build"
+
+      - |-
+          if [ "$CI_PR_LEVEL" -eq "init" ]; then
+            echo "==> init pull request $CI_PR"
+          fi
+
+      - |-
+          if [ "$CI_PR_LEVEL" -eq "free" ]; then
+            echo "==> free pull request $CI_PR"
+          fi
+
+      - |-
+          if [ -z "$CI_PR_LEVEL" ]; then
+            echo "==> release staging"
+          fi
+
+      - |-
+          if [ ! -z "$CI_REL" ]; then
+            echo "==> release $CI_REL"
+          fi
