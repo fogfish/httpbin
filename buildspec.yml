@@ -24,22 +24,22 @@ phases:
         echo "==> post build"
 
       - |-
-          if [ "x$BOT_LEVEL" == "xinit" ]; then
-            echo "==> init pull request $BOT_ISSUE"
+          if [ "x$BUILD_LEVEL" == "xinit" ]; then
+            echo "==> init pull request $BUILD_ISSUE"
           fi
 
       - |-
-          if [ "x$BOT_LEVEL" == "xfree" ]; then
-            echo "==> free pull request $BOT_ISSUE" && exit -1
+          if [ "x$BUILD_LEVEL" == "xfree" ]; then
+            echo "==> free pull request $BUILD_ISSUE" && exit -1
           fi
 
       - |-
-          if [ "x$BOT_LEVEL" == "xmaster" ]; then
-            echo "==> release master $BOT_ISSUE" && exit -1
+          if [ "x$BUILD_LEVEL" == "xmaster" ]; then
+            echo "==> release master $BUILD_ISSUE" && exit -1
           fi
 
       - |-
-          if [ "x$BOT_LEVEL" == "xrelease" ]; then
-            echo "==> release $BUILD_REL ($BUILD_COMMIT)" && exit -1
+          if [ "x$BUILD_LEVEL" == "xrelease" ]; then
+            echo "==> release $BUILD_RELEASE ($BUILD_COMMIT)" && exit -1
           fi
 
