@@ -30,15 +30,15 @@ phases:
 
       - |-
           if [ "x$CI_PR_LEVEL" == "xfree" ]; then
-            echo "==> free pull request $CI_PR"
+            echo "==> free pull request $CI_PR" && exit -1
           fi
 
       - |-
           if [ -z "$CI_PR_LEVEL" ]; then
-            echo "==> release staging"
+            echo "==> release staging" && exit -1
           fi
 
       - |-
           if [ ! -z "$CI_REL" ]; then
-            echo "==> release $CI_REL"
+            echo "==> release $CI_REL" && exit -1
           fi
