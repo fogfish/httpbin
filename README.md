@@ -1,2 +1,3 @@
 # httpbin
-Serverless implementation of httpbin.org api
+
+A serverless implementation of http://httpbin.org. The purpose of this repository is testing the limits of continuous delivery with AWS CDK.
