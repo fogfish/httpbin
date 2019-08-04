@@ -30,16 +30,16 @@ phases:
 
       - |-
           if [ "x$BUILD_LEVEL" == "xfree" ]; then
-            echo "==> free pull request $BUILD_ISSUE" && exit -1
+            echo "==> free pull request $BUILD_ISSUE"
           fi
 
       - |-
           if [ "x$BUILD_LEVEL" == "xmaster" ]; then
-            echo "==> release master $BUILD_ISSUE" && exit -1
+            echo "==> release master $BUILD_ISSUE"
           fi
 
       - |-
           if [ "x$BUILD_LEVEL" == "xrelease" ]; then
-            echo "==> release $BUILD_RELEASE ($BUILD_COMMIT)" && exit -1
+            echo "==> release $BUILD_RELEASE ($BUILD_COMMIT)"
           fi
 
