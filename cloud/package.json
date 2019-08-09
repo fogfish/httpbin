@@ -4,8 +4,12 @@
   "dependencies": {
     "@types/node": "*",
     "@aws-cdk/core": "*",
+    "@aws-cdk/aws-secretsmanager": "*",
     "@aws-cdk/aws-iam": "*",
     "@aws-cdk/aws-lambda": "*",
-    "@aws-cdk/aws-apigateway": "*"
+    "@aws-cdk/aws-apigateway": "*",
+    "@aws-cdk/aws-certificatemanager": "*",
+    "@aws-cdk/aws-route53": "*",
+    "@aws-cdk/aws-route53-targets": "*"
   }
 }

@@ -27,9 +27,20 @@ phases:
         echo "==> post build"
 
       - |-
-          if [ "x$BUILD_LEVEL" == "xfree" ]; then
-            (cd cloud; cdk destroy)
-          else
-            (cd cloud; cdk deploy)
-          fi
-
+          case $BUILD_LEVEL in
+            init)
+              (cd cloud; VSN="${BUILD_ISSUE}" cdk deploy)
+              ;;
+            sync)
+              (cd cloud; VSN=${BUILD_ISSUE} cdk deploy)
+              ;;
+            free)
+              (cd cloud; VSN=${BUILD_ISSUE} cdk destroy)
+              ;;
+            master)
+              (cd cloud; VSN=dev cdk deploy)
+              ;;
+            release)
+              (cd cloud; VSN=${BUILD_RELEASE} cdk deploy)
+              ;;
+          esac
