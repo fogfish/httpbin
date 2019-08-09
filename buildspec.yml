@@ -8,6 +8,7 @@ phases:
       - |-
         echo "==> install"
       - npm install
+      - (cd cloud; npm install)
 
   pre_build:
     commands:
@@ -27,8 +28,8 @@ phases:
 
       - |-
           if [ "x$BUILD_LEVEL" == "xfree" ]; then
-            cdk destroy
+            (cd cloud; cdk destroy)
           else
-            cdk deploy
+            (cd cloud; cdk deploy)
           fi
 
