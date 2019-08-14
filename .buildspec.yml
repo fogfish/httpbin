@@ -29,7 +29,7 @@ phases:
       - |-
           case $BUILD_LEVEL in
             init)
-              (cd cloud; VSN="${BUILD_ISSUE}" cdk deploy)
+              (cd cloud; VSN=${BUILD_ISSUE} cdk deploy)
               ;;
             sync)
               (cd cloud; VSN=${BUILD_ISSUE} cdk deploy)
