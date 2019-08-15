@@ -1,4 +1,5 @@
 {
-   "image": "code-build/serverless"
+   "image": "code-build/serverless",
+   "approver": ["fogfish"]
 }
 

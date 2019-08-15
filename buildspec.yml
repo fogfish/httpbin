@@ -27,20 +27,11 @@ phases:
         echo "==> post build"
 
       - |-
-          case $BUILD_LEVEL in
-            init)
-              (cd cloud; VSN=${BUILD_ISSUE} cdk deploy)
+          case $BUILD in
+            CleanUp)
+              (cd cloud; VSN=${BUILD_RELEASE} cdk destroy)
               ;;
-            sync)
-              (cd cloud; VSN=${BUILD_ISSUE} cdk deploy)
-              ;;
-            free)
-              (cd cloud; VSN=${BUILD_ISSUE} cdk destroy)
-              ;;
-            master)
-              (cd cloud; VSN=dev cdk deploy)
-              ;;
-            release)
+            *)
               (cd cloud; VSN=${BUILD_RELEASE} cdk deploy)
               ;;
           esac
