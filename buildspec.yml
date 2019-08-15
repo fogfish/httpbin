@@ -29,7 +29,7 @@ phases:
       - |-
           case $BUILD in
             CleanUp)
-              (cd cloud; VSN=${BUILD_RELEASE} cdk destroy)
+              (cd cloud; VSN=${BUILD_RELEASE} cdk destroy -f)
               ;;
             *)
               (cd cloud; VSN=${BUILD_RELEASE} cdk deploy)
